@@ -23,8 +23,8 @@ with the current trend. Sometimes going out to buy a book or a comic book can ma
 
 Here are some screenshots of the interface:
 
-![Imgur](https://i.imgur.com/IBYgqJC.gif)
 ![Imgur](https://i.imgur.com/3CqMNTO.gif)
+![Imgur](https://i.imgur.com/IBYgqJC.gif)
 ![Imgur](https://i.imgur.com/ALIoTvE.gif)
 
 
@@ -39,14 +39,15 @@ Bookeven use [Nodejs](http://nodejs.org/) JavaScript framework. [Reactjs](https:
 - [lodash](https://lodash.com/): A modern JavaScript utility library delivering modularity, performance & extras.
 - [moment](https://momentjs.com/): Parse, validate, manipulate, and display dates and times in JavaScript.
 - [numeral](http://numeraljs.com/): A javascript library for formatting and manipulating numbers.
+- [swagger](https://swagger.io/): Simplify API development for users, teams, and enterprises with the Swagger open source and professional toolset
 
 
 ## Maintained locations
 | Description        | URL           | Type  |
 | ------------- |-------------| -----:|
-| Online Web-version (hosted on Heroku)      | https://bookeven-backend.herokuapp.com/ | hosted
+| Online Web-version (hosted on Heroku)      | https://frontend-bookeven.herokuapp.com/# | hosted |
+| Swagger (hosted on freevnn)      | http://bebookeven.freevnn.com/?i=1 | hosted |
 
-**Hosted**: the app is downloaded via HTTPS as a usual website. Will be available offline due to application cache.
 
 ## Development Team
 
