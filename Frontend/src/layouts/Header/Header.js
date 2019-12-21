@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import {
@@ -83,7 +83,7 @@ class Header extends Component {
         })
     }
     render() {
-        const { parent, child, cart, fieldsBook, info, authen, detailBook, history } = this.props
+        const { parent, child, cart, fieldsBook, info, authen, detailBook } = this.props
         const { role } = info
         var total = 0
         if (cart.length > 0)

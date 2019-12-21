@@ -27,20 +27,18 @@ import {
     getListBestNewestSuccess, getListBestNewestFailed,
     updateCommentSuccess, updateCommentFailed,
     deleteCommentSuccess, deleteCommentFailed,
-    getListBestRate as getListBestRate2, uploadImageFailed,
+    getListBestRate as getListBestRate2, 
+    uploadImageFailed, uploadImageSuccess,
     addNewBookSuccess, addNewBookFailed,
     addNewBook as onAddNewBook,
     getListRateSuccess, getListRateFailed,
     rateBookSuccess, rateBookFailed,
-    updateRateSuccess, updateRateFailed,
-    getListRate as fetchListRate,
-    getDetailBook as fetchDetailBook,
     fourBestDiscountSuccess, fourBestDiscountFailed,
     fourNewestFailed, fourNewestSuccess,
     foutBestSellerFailed, foutBestSellerSuccess
 } from '../actions/book'
 import {
-    getListFieldsbook, updateListBooks, getListComments, addComment, addRate, updateRate,
+    getListFieldsbook, updateListBooks, getListComments, addComment, addRate,
     getListBestSeller, getBooksByBFID, getListNewest, getListBestRate, getListBestSales, getDetailBook,
     updateComment, deleteComment, filterBook, uploadImage, addNewBook, getListRate
 } from '../apis/book'
@@ -103,7 +101,6 @@ function* watchRateBookAction({ payload }) {
         yield put(showLoading())
         const res = yield call(addRate, payload.data)
         const { status, data } = res
-        console.log(res)
         if (status === STATUS_CODE.CREATED) {
             yield put(getListRate({
                 book_id: payload.data.book_id
@@ -113,7 +110,6 @@ function* watchRateBookAction({ payload }) {
             yield put(rateBookFailed(data.message))
         }
     } catch (error) {
-        console.log(error)
         var message = _get(error, 'response.data.message', {});
         if (typeof message === 'object')
             message = MSG_ERROR_OCCUR
@@ -337,9 +333,7 @@ function* filterBooksAction({ payload }) {
     try {
         yield put(showLoading())
         const res = yield call(filterBook, payload.data)
-        console.log(payload.data)
         const { status, data } = res
-        console.log(res)
         if (status === STATUS_CODE.SUCCESS) {
             var body = {
                 ...data,
@@ -366,29 +360,28 @@ function* updateBookAction({ payload }) {
             imgurService.setHeader('Authorization', `Client-Id ${config.imgur_client_id}`)
             const res = yield call(uploadImage, payload.data)
             if (res.status === STATUS_CODE.SUCCESS) {
+                yield put(uploadImageSuccess(res.data))
                 try {
                     var body = {
                         ...payload.data,
                         image: res.data.data.link
                     }
-                    console.log(body)
                     const resp = yield call(updateListBooks, body)
                     const { status, data } = resp
-                    console.log(resp)
                     if (status === STATUS_CODE.SUCCESS) {
                         yield put(updateListBookSuccess(body))
                     }
                     else yield put(updateListBookFailed(data.message))
-                } catch (error) {
-                    var message = _get(error, 'response.data.message', {});
+                } catch (errors) {
+                    var message = _get(errors, 'response.data.message', {});
                     if (typeof message === 'object')
                         message = MSG_ERROR_OCCUR
                     yield put(updateListBookFailed(message))
                 }
             }
             else yield put(uploadImageFailed(res.data.message))
-        } catch (error) {
-            var err = _get(error, 'response.data.message', {});
+        } catch (errorss) {
+            var err = _get(errorss, 'response.data.message', {});
             if (typeof err === 'object')
                 err = MSG_ERROR_OCCUR
             yield put(uploadImageFailed(err))
@@ -405,10 +398,10 @@ function* updateBookAction({ payload }) {
             }
             else yield put(updateListBookFailed(data.message))
         } catch (error) {
-            var message = _get(error, 'response.data.message', {});
+            var erro = _get(error, 'response.data.message', {});
             if (typeof message === 'object')
-                message = MSG_ERROR_OCCUR
-            yield put(updateListBookFailed(message))
+                erro = MSG_ERROR_OCCUR
+            yield put(updateListBookFailed(erro))
         } finally {
             yield put(hideLoading())
         }
@@ -474,10 +467,8 @@ function* watchAddNewBook({ payload }) {
                     ...payload.data,
                     image: res.data.data.link
                 }
-                console.log(body)
                 const resp = yield call(addNewBook, body)
                 const { status, data } = resp
-                console.log(resp)
                 if (status === STATUS_CODE.SUCCESS) {
                     yield put(addNewBookSuccess(body))
                 }

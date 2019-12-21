@@ -146,7 +146,6 @@ class BookField extends Component {
                 amount: filtedBook.pageSize,
                 page: page
             }
-            console.log(body)
             filterBooks(body)
         }
     };

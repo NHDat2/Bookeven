@@ -57,7 +57,6 @@ class DetailOrder extends Component {
             shipDate: this.$utils.convertDateToTS(toDate).toString(),
             status: status
         }
-        console.log(body)
         updateOrder(body)
     }
     componentDidMount() {
@@ -71,7 +70,6 @@ class DetailOrder extends Component {
     render() {
         const { data, modal, closeModal, role } = this.props
         const { status, isEditTime, toDate } = this.state
-        console.log(data, toDate)
         let xhtml = null
         if (data.id !== undefined)
             xhtml =

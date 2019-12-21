@@ -5,8 +5,6 @@ import {
     take,
     takeLatest,
     takeEvery,
-    select,
-    delay
 } from 'redux-saga/effects';
 import * as types from '../const/actionType'
 import { hideLoading, showLoading } from '../actions/ui';
@@ -19,7 +17,6 @@ import {
     createOrderSuccess, createOrderFailed,
     
 } from '../actions/order'
-import { fetchCart } from '../actions/cart'
 import { fetchAllListOrders, fetchDetailOrder, createOrder, filterOrder, updateOrder } from '../apis/order'
 import { toastSuccess } from '../utils/Utils'
 import * as msg from '../const/message'
@@ -33,7 +30,6 @@ function* watchfetchAllListOrders() {
             yield put(showLoading())
             const res = yield call(fetchAllListOrders)
             const { status, data } = res
-            console.log(res)
             if (status === STATUS_CODE.SUCCESS) {
                 yield put(fetchAllListOrdersSuccess(data))
             } else {
@@ -52,11 +48,9 @@ function* watchfetchAllListOrders() {
 
 function* watchfetchDetailOrder({ payload }) {
     try {
-        console.log(payload.data)
         yield put(showLoading())
         const res = yield call(fetchDetailOrder, payload.data)
         const { status, data } = res
-        console.log(res)
         if (status === STATUS_CODE.SUCCESS) {
             yield put(fetchDetailOrderSuccess(data))
         } else {
@@ -77,7 +71,6 @@ function* watchFilterOrder({ payload }) {
         yield put(showLoading())
         const res = yield call(filterOrder, payload.data)
         const { status, data } = res
-        console.log(res)
         if (status === STATUS_CODE.SUCCESS) {
             yield put(filterOrderSuccess(data))
         }
@@ -97,8 +90,7 @@ function* watchCreateOrder({ payload }) {
         yield put(showLoading())
         const res = yield call(createOrder, payload.data)
         const { status, data } = res
-        console.log(res)
-        if (status === STATUS_CODE.SUCCESS) {
+        if (status === STATUS_CODE.CREATED) {
             yield put(createOrderSuccess(data))
         }
         else yield put(createOrderFailed(data.message))
