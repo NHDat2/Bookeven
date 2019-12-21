@@ -24,8 +24,8 @@ with the current trend. Sometimes going out to buy a book or a comic book can ma
 Here are some screenshots of the interface:
 
 ![Imgur](https://i.imgur.com/IBYgqJC.gif)
-![Imgur](https://i.imgur.com/3CqMNTO.gifv)
-![Imgur](https://i.imgur.com/ALIoTvE.gifv)
+![Imgur](https://i.imgur.com/3CqMNTO.gif)
+![Imgur](https://i.imgur.com/ALIoTvE.gif)
 
 
 ## Technologies
