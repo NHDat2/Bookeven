@@ -1,0 +1,232 @@
+.bpcard-container {
+  .card {
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    min-height: 540px !important;
+    max-height: 540px !important;
+
+    .card-body .card-text {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    &:hover {
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+      -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+
+      .book-wrapper {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+        -webkit-transition: all 0.25s ease;
+        transition: all 0.25s ease;
+      }
+    }
+  }
+  .modal-dialog.cascading-modal {
+    margin-top: 3%;
+  }
+  .modal-edit {
+    label {
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 0.5rem;
+    }
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+    .ant-btn-lg {
+      text-transform: uppercase;
+      background: linear-gradient(25deg, #d64c7f, #ee4758 50%);
+      border-color: #ee4758;
+
+      &:hover,
+      &:active,
+      &:focus {
+        border-color: #ee4758;
+      }
+    }
+
+    .avatar-uploader > .ant-upload,
+    .img-lightbox {
+      width: 128px;
+      height: auto;
+    }
+
+    .mask:hover {
+      cursor: zoom-in;
+    }
+
+    .modal-header {
+      background: linear-gradient(25deg, #d64c7f, #ee4758 50%);
+    }
+    .btn-outline-default {
+      border: 2px solid #ee4758 !important;
+      color: #d64c7f !important;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .btn-default {
+      background: linear-gradient(25deg, #d64c7f, #ee4758 50%);
+    }
+  }
+
+  .book-wrapper {
+    border-radius: 0.55rem;
+    position: relative;
+    overflow: hidden;
+    margin-left: 4%;
+    margin-right: 4%;
+    word-wrap: break-word;
+    margin-top: -1.25rem;
+    background-clip: border-box;
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+
+    .promotionPercent {
+      position: absolute;
+      width: 3.5rem;
+      height: 1.7rem;
+      top: 0;
+      right: -3px;
+
+      svg {
+        width: 3.5rem;
+        height: 1.7rem;
+        fill: #f21a4c;
+      }
+
+      & > span {
+        padding-right: 0;
+        width: 100%;
+        justify-content: center;
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 500;
+        padding-right: 0.4rem;
+        height: 100%;
+        position: absolute;
+        font-weight: bold;
+        top: 0;
+        right: -0.2rem;
+        bottom: unset;
+        left: unset;
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .imgBook {
+      border-top-left-radius: calc(0.25rem - 1px);
+      border-top-right-radius: calc(0.25rem - 1px);
+      border-style: none;
+      border-radius: 0.25rem;
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 320px;
+    }
+  }
+  .card-title {
+    color: black !important;
+    cursor: pointer;
+    font-weight: 800px;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &:hover a {
+      color: #0de24a !important;
+    }
+  }
+
+  .price {
+    position: relative;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    display: block;
+  }
+
+  /* SCSS for couplebutton */
+  .coubtn-wrapper {
+    display: block;
+    padding: 10px 20px 20px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+
+    .coubtn-border {
+      border: 1px solid #bfc7c8;
+      border-radius: 20px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      ::after {
+        display: table;
+        content: " ";
+        clear: both;
+      }
+
+      .detail {
+        border-radius: 20px 0 0 20px;
+        border-right: 1px solid #bfc7c8;
+      }
+
+      span {
+        display: inline-block;
+        width: 50%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        color: #3c3d41;
+        background: none;
+        font-size: 8px;
+        line-height: 30px;
+        text-align: left;
+        text-align: center;
+        letter-spacing: normal;
+        text-transform: uppercase;
+        border-radius: 0 20px 20px 0;
+        -webkit-transition: background 0.3s;
+        transition: background 0.3s;
+        div {
+          display: inline-block;
+          margin-right: 5px;
+          color: #acb3b4;
+          font-size: 16px;
+          vertical-align: bottom;
+        }
+
+        &:hover.detail {
+          background: #3696e4;
+          a {
+            color: #fff !important;
+          }
+          i {
+            color: #fff !important;
+          }
+        }
+        &:hover.cart_edit {
+          color: #fff;
+          background: #f14444;
+          div {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+.ReactModal__Overlay--after-open {
+  z-index: 2000 !important;
+}

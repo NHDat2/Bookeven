@@ -1,0 +1,45 @@
+import * as types from '../const/actionType'
+
+const initialState = {
+    toggleModal: {
+        numTab: 0,
+        isOpen: false,
+    },
+    showLoading: false,
+}
+
+const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case types.OPEN_MODAL:
+            var openModal = {
+                numTab: action.numTab,
+                isOpen: true
+            }
+            return {
+                ...state,
+                toggleModal: openModal
+            }
+        case types.CLOSE_MODAL:
+            var closeModal = {
+                numTab: 0,
+                isOpen: false
+            }
+            return {
+                ...state,
+                toggleModal: closeModal
+            }
+        case types.SHOW_LOADING:
+            return {
+                ...state,
+                showLoading: true
+            }
+        case types.HIDE_LOADING:
+            return {
+                ...state,
+                showLoading: false
+            }
+        default: return state
+    }
+}
+
+export default reducer
